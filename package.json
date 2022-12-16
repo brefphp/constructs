@@ -1,0 +1,31 @@
+{
+  "name": "@bref.sh/constructs",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "nodemon --watch src --ext ts,js --exec 'npx esbuild-node-tsc'",
+    "lint": "eslint .",
+    "prettify": "prettier --write --ignore-path .gitignore \"**/*.{css,html,js,json,md,yaml,yml}\"",
+    "release": "npm publish --access=public --tag=latest"
+  },
+  "peerDependencies": {
+    "aws-cdk-lib": "^2.55.0",
+    "constructs": "^10.0.0"
+  },
+  "dependencies": {
+    "@bref.sh/layers": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.3",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "esbuild-node-tsc": "^1.8.5",
+    "eslint": "8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  }
+}

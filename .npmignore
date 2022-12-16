@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+src/
+.github/
+.eslintrc.js
+tsconfig.json
+tsconfig.test.json

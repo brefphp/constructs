@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2019",
+    "outDir": "dist",
+    "declaration": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    // Useful for debugging (stack traces)
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "strictNullChecks": true
+  },
+  "include": ["src"]
+}
