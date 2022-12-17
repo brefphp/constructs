@@ -1,7 +1,9 @@
 node_modules/
 package-lock.json
 src/
+test/
 .github/
 .eslintrc.js
 tsconfig.json
 tsconfig.test.json
+.prettierrc.yaml
