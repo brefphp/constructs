@@ -1,6 +1,6 @@
 import { AssetOptions } from 'aws-cdk-lib/aws-s3-assets';
 import { Code } from 'aws-cdk-lib/aws-lambda';
-import { functionDefaults } from './defaults';
+import { functionDefaults } from './function/defaults';
 
 /**
  * @param path Defaults to the current working directory.

@@ -2,22 +2,20 @@ import { Function, FunctionProps, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { Duration, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { functionDefaults } from './defaults';
-import { fpmLayer } from './layers';
-import { packagePhpCode } from './package';
+import { functionLayer } from '../layers';
+import { packagePhpCode } from '../package';
 
-export type FpmFunctionProps = Partial<FunctionProps> & {
+export type PhpFunctionProps = Partial<FunctionProps> & {
     phpVersion?: '8.0' | '8.1' | '8.2';
+    handler: string;
 };
 
-export class FpmFunction extends Function {
-    constructor(scope: Construct, id: string, props: FpmFunctionProps = {}) {
+export class PhpFunction extends Function {
+    constructor(scope: Construct, id: string, props: PhpFunctionProps) {
         const defaults = {
-            description: 'HTTP application',
             runtime: Runtime.PROVIDED_AL2,
-            handler: props.handler ?? 'index.php',
             code: props.code ?? packagePhpCode(),
-            // API Gateway has a 29s timeout
-            timeout: Duration.seconds(28),
+            timeout: Duration.seconds(6),
             memorySize: functionDefaults.memorySize,
         };
 
@@ -41,8 +39,8 @@ export class FpmFunction extends Function {
         }
         const phpVersion = props.phpVersion ?? functionDefaults.phpVersion;
         this.addLayers(
-            // Add the FPM layer first so that other layers can override it
-            fpmLayer(scope, region, phpVersion, functionDefaults.platform),
+            // Add the function layer first so that other layers can override it
+            functionLayer(scope, region, phpVersion, functionDefaults.platform),
             ...layers
         );
     }

@@ -3,5 +3,5 @@ export const functionDefaults = {
     phpVersion: '8.1',
     memorySize: 1024,
     platform: 'x86',
-    excludedPhpPaths: ['.git', 'cdk.out', 'node_modules', '.bref', 'tests'],
+    excludedPhpPaths: ['.git', '.idea', 'cdk.out', 'node_modules', '.bref', '.serverless', 'tests'],
 } as const;
