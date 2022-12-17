@@ -1,0 +1,63 @@
+// Vitest Snapshot v1
+
+exports[`PhpFunction > builds 1`] = `
+{
+  "Function76856677": {
+    "DependsOn": [
+      "FunctionServiceRole675BB04A",
+    ],
+    "Properties": {
+      "Code": {
+        "S3Bucket": {
+          "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-us-east-1",
+        },
+      },
+      "Handler": "index.php",
+      "Layers": [
+        "arn:aws:lambda:us-east-1:534081306603:layer:php-81:2",
+      ],
+      "MemorySize": 1024,
+      "Role": {
+        "Fn::GetAtt": [
+          "FunctionServiceRole675BB04A",
+          "Arn",
+        ],
+      },
+      "Runtime": "provided.al2",
+      "Timeout": 6,
+    },
+    "Type": "AWS::Lambda::Function",
+  },
+  "FunctionServiceRole675BB04A": {
+    "Properties": {
+      "AssumeRolePolicyDocument": {
+        "Statement": [
+          {
+            "Action": "sts:AssumeRole",
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "lambda.amazonaws.com",
+            },
+          },
+        ],
+        "Version": "2012-10-17",
+      },
+      "ManagedPolicyArns": [
+        {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            ],
+          ],
+        },
+      ],
+    },
+    "Type": "AWS::IAM::Role",
+  },
+}
+`;
