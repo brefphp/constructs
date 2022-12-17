@@ -11,11 +11,12 @@ exports[`PhpFpmFunction > builds 1`] = `
         "S3Bucket": {
           "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-us-east-1",
         },
+        "S3Key": "<removed>",
       },
       "Description": "HTTP application",
       "Handler": "index.php",
       "Layers": [
-        "arn:aws:lambda:us-east-1:534081306603:layer:php-81-fpm:2",
+        "arn:aws:lambda:us-east-1:534081306603:layer:php-81-fpm:<removed>",
       ],
       "MemorySize": 1024,
       "Role": {

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { PhpFpmFunction, PhpFunction } from '../../src';
-import { compileTestStack } from '../helper';
+import { PhpFpmFunction } from '../../src';
+import { cleanupTemplate, compileTestStack } from '../helper';
 
 describe('PhpFpmFunction', () => {
     it('builds', () => {
@@ -9,9 +9,7 @@ describe('PhpFpmFunction', () => {
                 handler: 'index.php',
             });
         }).toJSON();
-        // Remove random data that changes every time
-        delete template.Resources.Function76856677?.Properties?.Code?.S3Key;
 
-        expect(template.Resources).toMatchSnapshot();
+        expect(cleanupTemplate(template).Resources).toMatchSnapshot();
     });
 });
