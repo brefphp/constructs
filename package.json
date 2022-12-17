@@ -1,13 +1,11 @@
 {
   "name": "@bref.sh/constructs",
-  "version": "0.2.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "watch": "nodemon --watch src --ext ts,js --exec 'npx esbuild-node-tsc'",
     "lint": "eslint .",
     "prettify": "prettier --write --ignore-path .gitignore \"**/*.{css,html,js,json,md,yaml,yml}\"",
-    "release": "npm publish --access=public --tag=latest",
     "test": "vitest"
   },
   "peerDependencies": {
