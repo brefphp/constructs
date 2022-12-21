@@ -1,13 +1,16 @@
 import { Function, FunctionProps, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { Duration, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { functionDefaults } from './defaults';
+import { functionDefaults, vpcDefaults } from './defaults';
 import { functionLayer } from '../layers';
 import { packagePhpCode } from '../package';
+import { IVpc } from 'aws-cdk-lib/aws-ec2';
+import { VpcForServerlessApp } from '../vpc/VpcForServerlessApp';
 
 export type PhpFunctionProps = Partial<FunctionProps> & {
     phpVersion?: '8.0' | '8.1' | '8.2';
     handler: string;
+    vpc: IVpc | VpcForServerlessApp;
 };
 
 export class PhpFunction extends Function {
@@ -24,6 +27,7 @@ export class PhpFunction extends Function {
 
         super(scope, id, {
             ...defaults,
+            ...vpcDefaults(props.vpc),
             // Provided props override defaults
             ...props,
             // But we force the layers to an empty array because we define them below
