@@ -1,0 +1,97 @@
+// Vitest Snapshot v1
+
+exports[`StorageBucket > builds 1`] = `
+{
+  "Files8E6940B8": {
+    "DeletionPolicy": "Retain",
+    "Properties": {
+      "BucketEncryption": {
+        "ServerSideEncryptionConfiguration": [
+          {
+            "ServerSideEncryptionByDefault": {
+              "SSEAlgorithm": "AES256",
+            },
+          },
+        ],
+      },
+      "LifecycleConfiguration": {
+        "Rules": [
+          {
+            "Status": "Enabled",
+            "Transitions": [
+              {
+                "StorageClass": "INTELLIGENT_TIERING",
+                "TransitionInDays": 0,
+              },
+            ],
+          },
+          {
+            "NoncurrentVersionExpiration": {
+              "NoncurrentDays": 30,
+            },
+            "Status": "Enabled",
+          },
+        ],
+      },
+      "PublicAccessBlockConfiguration": {
+        "BlockPublicAcls": true,
+        "BlockPublicPolicy": true,
+        "IgnorePublicAcls": true,
+        "RestrictPublicBuckets": true,
+      },
+      "VersioningConfiguration": {
+        "Status": "Enabled",
+      },
+    },
+    "Type": "AWS::S3::Bucket",
+    "UpdateReplacePolicy": "Retain",
+  },
+  "FilesPolicyCFAB4773": {
+    "Properties": {
+      "Bucket": {
+        "Ref": "Files8E6940B8",
+      },
+      "PolicyDocument": {
+        "Statement": [
+          {
+            "Action": "s3:*",
+            "Condition": {
+              "Bool": {
+                "aws:SecureTransport": "false",
+              },
+            },
+            "Effect": "Deny",
+            "Principal": {
+              "AWS": "*",
+            },
+            "Resource": [
+              {
+                "Fn::GetAtt": [
+                  "Files8E6940B8",
+                  "Arn",
+                ],
+              },
+              {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::GetAtt": [
+                        "Files8E6940B8",
+                        "Arn",
+                      ],
+                    },
+                    "/*",
+                  ],
+                ],
+              },
+            ],
+          },
+        ],
+        "Version": "2012-10-17",
+      },
+    },
+    "Type": "AWS::S3::BucketPolicy",
+  },
+}
+`;
