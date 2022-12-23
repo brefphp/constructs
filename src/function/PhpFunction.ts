@@ -10,7 +10,7 @@ import { VpcForServerlessApp } from '../vpc/VpcForServerlessApp';
 export type PhpFunctionProps = Partial<FunctionProps> & {
     phpVersion?: '8.0' | '8.1' | '8.2';
     handler: string;
-    vpc: IVpc | VpcForServerlessApp;
+    vpc?: IVpc | VpcForServerlessApp;
 };
 
 export class PhpFunction extends Function {
