@@ -12,4 +12,18 @@ describe('PhpFunction', () => {
 
         expect(cleanupTemplate(template).Resources).toMatchSnapshot();
     });
+
+    // https://github.com/brefphp/constructs/issues/1
+    it('can build multiple functions in the same stack', () => {
+        const template = compileTestStack((stack) => {
+            new PhpFunction(stack, 'Function1', {
+                handler: 'index.php',
+            });
+            new PhpFunction(stack, 'Function2', {
+                handler: 'index.php',
+            });
+        });
+
+        template.resourceCountIs('AWS::Lambda::Function', 2);
+    });
 });

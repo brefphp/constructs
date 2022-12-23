@@ -33,7 +33,7 @@ export class PhpFpmFunction extends Function {
             layers: [],
         });
 
-        // Add layer afterwards so that we can use `this` to resolve the region
+        // Add layer afterwards so that we can use `this`
         const region = Stack.of(this).region;
         if (region.startsWith('${')) {
             throw new Error(
@@ -43,7 +43,7 @@ export class PhpFpmFunction extends Function {
         const phpVersion = props.phpVersion ?? functionDefaults.phpVersion;
         this.addLayers(
             // Add the FPM layer first so that other layers can override it
-            fpmLayer(scope, region, phpVersion, functionDefaults.platform),
+            fpmLayer(this, region, phpVersion, functionDefaults.platform),
             ...layers
         );
     }

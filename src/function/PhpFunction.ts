@@ -34,7 +34,7 @@ export class PhpFunction extends Function {
             layers: [],
         });
 
-        // Add layer afterwards so that we can use `this` to resolve the region
+        // Add layer afterwards so that we can use `this`
         const region = Stack.of(this).region;
         if (region.startsWith('${')) {
             throw new Error(
@@ -44,7 +44,7 @@ export class PhpFunction extends Function {
         const phpVersion = props.phpVersion ?? functionDefaults.phpVersion;
         this.addLayers(
             // Add the function layer first so that other layers can override it
-            functionLayer(scope, region, phpVersion, functionDefaults.platform),
+            functionLayer(this, region, phpVersion, functionDefaults.platform),
             ...layers
         );
     }
