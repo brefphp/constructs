@@ -1,4 +1,4 @@
-import { ILayerVersion, LayerVersion } from 'aws-cdk-lib/aws-lambda';
+import { Architecture, ILayerVersion, LayerVersion } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 import { functionLayerArn, fpmLayerArn, consoleLayerArn } from '@bref.sh/layers';
 
@@ -6,8 +6,10 @@ export function functionLayer(
     scope: Construct,
     region: string,
     phpVersion: string,
-    platform: 'x86' | 'arm'
+    architecture: Architecture
 ): ILayerVersion {
+    const platform = architecture === Architecture.X86_64 ? 'x86' : 'arm';
+
     return LayerVersion.fromLayerVersionArn(
         scope,
         'BrefFunctionLayer',
@@ -19,8 +21,10 @@ export function fpmLayer(
     scope: Construct,
     region: string,
     phpVersion: string,
-    platform: 'x86' | 'arm'
+    architecture: Architecture
 ): ILayerVersion {
+    const platform = architecture === Architecture.X86_64 ? 'x86' : 'arm';
+
     return LayerVersion.fromLayerVersionArn(
         scope,
         'BrefFpmLayer',

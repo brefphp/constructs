@@ -43,7 +43,7 @@ export class PhpFpmFunction extends Function {
         const phpVersion = props.phpVersion ?? functionDefaults.phpVersion;
         this.addLayers(
             // Add the FPM layer first so that other layers can override it
-            fpmLayer(this, region, phpVersion, functionDefaults.platform),
+            fpmLayer(this, region, phpVersion, props.architecture ?? functionDefaults.architecture),
             ...layers
         );
     }
