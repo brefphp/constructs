@@ -1,11 +1,12 @@
 import { IVpc, SecurityGroup, SubnetSelection, SubnetType } from 'aws-cdk-lib/aws-ec2';
 import { VpcForServerlessApp } from '../vpc/VpcForServerlessApp';
+import { Architecture } from 'aws-cdk-lib/aws-lambda';
 
 export const functionDefaults = {
     path: process.cwd(),
     phpVersion: '8.1',
     memorySize: 1024,
-    platform: 'x86',
+    architecture: Architecture.X86_64,
     excludedPhpPaths: ['.git', '.idea', 'cdk.out', 'node_modules', '.bref', '.serverless', 'tests'],
 } as const;
 
