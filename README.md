@@ -1,4 +1,4 @@
-# AWS CDK constructs for PHP applications on AWS Lambda
+# AWS CDK constructs for PHP on AWS Lambda
 
 The [Bref](https://bref.sh/) CDK constructs let you deploy serverless PHP applications on AWS Lambda using the AWS CDK.
 
