@@ -133,7 +133,7 @@ It inherits from the AWS CDK [`Function` construct](https://docs.aws.amazon.com/
 - `code`: the code is automatically zipped from the current directory.
 - `layers`: the Bref layers are automatically added.
 - `memorySize`: `1024`
-- `timeout`: `6` (seconds)
+- `timeout`: `60` (seconds)
 
 The code is automatically zipped from the current directory. You can override this behavior by setting the `code` property:
 
