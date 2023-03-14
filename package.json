@@ -13,7 +13,7 @@
     "constructs": "^10.0.0"
   },
   "dependencies": {
-    "@bref.sh/layers": "^2.0.21"
+    "@bref.sh/layers": "^2.0.36"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.191",
