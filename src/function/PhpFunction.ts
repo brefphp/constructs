@@ -43,14 +43,14 @@ export class PhpFunction extends Function {
         }
         const phpVersion = props.phpVersion ?? functionDefaults.phpVersion;
         this.addLayers(
-            // Add the function layer first so that other layers can override it
+            ...layers,
+            // Add the function layer last so that other layers can override it
             functionLayer(
                 this,
                 region,
                 phpVersion,
                 props.architecture ?? functionDefaults.architecture
             ),
-            ...layers
         );
     }
 }
