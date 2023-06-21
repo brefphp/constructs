@@ -6,6 +6,7 @@
     "declaration": true,
     "esModuleInterop": true,
     "allowJs": true,
+    "skipLibCheck": true,
     // Useful for debugging (stack traces)
     "sourceMap": true,
     "resolveJsonModule": true,
