@@ -12,7 +12,7 @@ export function functionLayer(
 
     return LayerVersion.fromLayerVersionArn(
         scope,
-        'BrefFunctionLayer',
+        'Bref001FunctionLayer',
         functionLayerArn(region, phpVersion, platform)
     );
 }
@@ -27,11 +27,11 @@ export function fpmLayer(
 
     return LayerVersion.fromLayerVersionArn(
         scope,
-        'BrefFpmLayer',
+        'Bref101FpmLayer',
         fpmLayerArn(region, phpVersion, platform)
     );
 }
 
 export function consoleLayer(scope: Construct, region: string): ILayerVersion {
-    return LayerVersion.fromLayerVersionArn(scope, 'BrefConsoleLayer', consoleLayerArn(region));
+    return LayerVersion.fromLayerVersionArn(scope, 'Bref201ConsoleLayer', consoleLayerArn(region));
 }

@@ -1,9 +1,10 @@
-import { Stack } from 'aws-cdk-lib';
+import { App, AppProps, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { mapValues } from 'lodash';
 
-export function compileTestStack(definition: (stack: Stack) => void): Template {
-    const stack = new Stack(undefined, 'app', {
+export function compileTestStack(definition: (stack: Stack) => void, appProps: AppProps = undefined): Template {
+    const app = new App(appProps);
+    const stack = new Stack(app, 'app', {
         env: { region: 'us-east-1' },
     });
     definition(stack);
