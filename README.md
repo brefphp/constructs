@@ -6,7 +6,7 @@ By default, Bref [deploys using the Serverless Framework](https://bref.sh/docs/d
 
 ## Installation
 
-Install the package with NPM:
+Install [the package](https://github.com/brefphp/constructs) with NPM:
 
 ```bash
 npm install @bref.sh/constructs
