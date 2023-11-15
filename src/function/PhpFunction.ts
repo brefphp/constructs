@@ -8,7 +8,7 @@ import { IVpc } from 'aws-cdk-lib/aws-ec2';
 import { VpcForServerlessApp } from '../vpc/VpcForServerlessApp';
 
 export type PhpFunctionProps = Partial<FunctionProps> & {
-    phpVersion?: '8.0' | '8.1' | '8.2';
+    phpVersion?: '8.0' | '8.1' | '8.2' | '8.3';
     handler: string;
     vpc?: IVpc | VpcForServerlessApp;
 };
