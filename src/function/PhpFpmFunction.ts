@@ -6,7 +6,7 @@ import { fpmLayer } from '../layers';
 import { packagePhpCode } from '../package';
 
 export type PhpFpmFunctionProps = Partial<FunctionProps> & {
-    phpVersion?: '8.0' | '8.1' | '8.2' | '8.3';
+    phpVersion?: '8.0' | '8.1' | '8.2' | '8.3' | '8.4';
 };
 
 export class PhpFpmFunction extends Function {
