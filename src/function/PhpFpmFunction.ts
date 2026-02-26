@@ -1,7 +1,7 @@
 import { Function, FunctionProps, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { Duration, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { functionDefaults, vpcDefaults } from './defaults';
+import { functionDefaults } from './defaults';
 import { phpLayer } from '../layers';
 import { packagePhpCode } from '../package';
 
@@ -26,7 +26,6 @@ export class PhpFpmFunction extends Function {
 
         super(scope, id, {
             ...defaults,
-            ...vpcDefaults(props.vpc),
             // Provided props override defaults
             ...props,
             // But we force the layers to an empty array because we define them below
