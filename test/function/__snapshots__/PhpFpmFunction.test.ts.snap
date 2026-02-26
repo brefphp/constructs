@@ -14,9 +14,14 @@ exports[`PhpFpmFunction > builds 1`] = `
         "S3Key": "<removed>",
       },
       "Description": "HTTP application",
+      "Environment": {
+        "Variables": {
+          "BREF_RUNTIME": "fpm",
+        },
+      },
       "Handler": "index.php",
       "Layers": [
-        "arn:aws:lambda:us-east-1:534081306603:layer:php-81-fpm:<removed>",
+        "arn:aws:lambda:us-east-1:873528684822:layer:php-84:<removed>",
       ],
       "MemorySize": 1024,
       "Role": {
@@ -25,7 +30,7 @@ exports[`PhpFpmFunction > builds 1`] = `
           "Arn",
         ],
       },
-      "Runtime": "provided.al2",
+      "Runtime": "provided.al2023",
       "Timeout": 28,
     },
     "Type": "AWS::Lambda::Function",

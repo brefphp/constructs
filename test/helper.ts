@@ -23,7 +23,7 @@ export function cleanupTemplate(template: CompiledTemplate): CompiledTemplate {
             if (Array.isArray(resource.Properties.Layers)) {
                 resource.Properties.Layers = resource.Properties.Layers.map((layer: string) =>
                     layer.replace(
-                        /(arn:aws:lambda:[a-z0-9\-]+:534081306603:layer:[a-z0-9\-]+:)\d+/,
+                        /(arn:aws:lambda:[a-z0-9\-]+:873528684822:layer:[a-z0-9\-]+:)\d+/,
                         '$1<removed>'
                     )
                 );

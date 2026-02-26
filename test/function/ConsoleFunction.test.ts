@@ -15,9 +15,10 @@ describe('ConsoleFunction', () => {
 
         const consoleFunction = template.findResources('AWS::Lambda::Function');
         const layers = consoleFunction.Console63CA37A7.Properties.Layers;
-        expect(layers).length(2);
-        expect(layers[0]).to.match(/arn:aws:lambda:us-east-1:534081306603:layer:php-81:\d+/);
-        expect(layers[1]).to.match(/arn:aws:lambda:us-east-1:534081306603:layer:console:\d+/);
+        expect(layers).length(1);
+        expect(layers[0]).to.match(/arn:aws:lambda:us-east-1:873528684822:layer:php-84:\d+/);
+        const env = consoleFunction.Console63CA37A7.Properties.Environment.Variables;
+        expect(env.BREF_RUNTIME).toBe('console');
     });
 
     it('adds the console layer with recognizeLayerVersion flag', () => {
@@ -29,9 +30,10 @@ describe('ConsoleFunction', () => {
 
         const consoleFunction = template.findResources('AWS::Lambda::Function');
         const layers = consoleFunction.Console63CA37A7.Properties.Layers;
-        expect(layers).length(2);
-        expect(layers[0]).to.match(/arn:aws:lambda:us-east-1:534081306603:layer:php-81:\d+/);
-        expect(layers[1]).to.match(/arn:aws:lambda:us-east-1:534081306603:layer:console:\d+/);
+        expect(layers).length(1);
+        expect(layers[0]).to.match(/arn:aws:lambda:us-east-1:873528684822:layer:php-84:\d+/);
+        const env = consoleFunction.Console63CA37A7.Properties.Environment.Variables;
+        expect(env.BREF_RUNTIME).toBe('console');
     });
 
     it('supports ARM', () => {
@@ -45,7 +47,7 @@ describe('ConsoleFunction', () => {
         mapValues(template.findResources('AWS::Lambda::Function'), (resource) => {
             expect(resource.Properties.Architectures).toEqual(['arm64']);
             expect(resource.Properties.Layers[0]).matches(
-                /arn:aws:lambda:us-east-1:534081306603:layer:arm-php-81:\d+/
+                /arn:aws:lambda:us-east-1:873528684822:layer:arm-php-84:\d+/
             );
         });
     });

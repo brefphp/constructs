@@ -23,7 +23,7 @@ describe('PhpFpmFunction', () => {
         mapValues(template.findResources('AWS::Lambda::Function'), (resource) => {
             expect(resource.Properties.Architectures).toEqual(['arm64']);
             expect(resource.Properties.Layers[0]).matches(
-                /arn:aws:lambda:us-east-1:534081306603:layer:arm-php-81-fpm:\d+/
+                /arn:aws:lambda:us-east-1:873528684822:layer:arm-php-84:\d+/
             );
         });
     });

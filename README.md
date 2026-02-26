@@ -56,7 +56,7 @@ new PhpFpmFunction(this, 'MyFunction', {
 It inherits from the AWS CDK [`Function` construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda.Function.html) with these options set by default:
 
 - `handler`: `index.php` by default
-- `runtime`: `provided.al2`
+- `runtime`: `provided.al2023`
 - `code`: the code is automatically zipped from the current directory.
 - `layers`: the Bref layer is automatically added.
 - `memorySize`: `1024`
@@ -78,7 +78,7 @@ The following paths are always excluded: `.git`, `.idea`, `cdk.out`, `node_modul
 
 The construct also adds the following options:
 
-- `phpVersion` (default: `8.1`): the PHP version to use.
+- `phpVersion` (default: `8.4`): the PHP version to use.
 
 #### `PhpFunction`
 
@@ -92,7 +92,7 @@ new PhpFunction(this, 'MyFunction', {
 
 It inherits from the AWS CDK [`Function` construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda.Function.html) with these options set by default:
 
-- `runtime`: `provided.al2`
+- `runtime`: `provided.al2023`
 - `code`: the code is automatically zipped from the current directory.
 - `layers`: the Bref layer is automatically added.
 - `memorySize`: `1024`
@@ -115,7 +115,7 @@ The following paths are always excluded: `.git`, `.idea`, `cdk.out`, `node_modul
 
 The construct also adds the following options:
 
-- `phpVersion` (default: `8.1`): the PHP version to use.
+- `phpVersion` (default: `8.4`): the PHP version to use.
 
 #### `ConsoleFunction`
 
@@ -129,9 +129,9 @@ new ConsoleFunction(this, 'Artisan', {
 
 It inherits from the AWS CDK [`Function` construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda.Function.html) with these options set by default:
 
-- `runtime`: `provided.al2`
+- `runtime`: `provided.al2023`
 - `code`: the code is automatically zipped from the current directory.
-- `layers`: the Bref layers are automatically added.
+- `layers`: the Bref layer is automatically added.
 - `memorySize`: `1024`
 - `timeout`: `6` (seconds)
 
@@ -152,4 +152,4 @@ The following paths are always excluded: `.git`, `.idea`, `cdk.out`, `node_modul
 
 The construct also adds the following options:
 
-- `phpVersion` (default: `8.1`): the PHP version to use.
+- `phpVersion` (default: `8.4`): the PHP version to use.

@@ -2,13 +2,13 @@ import { Function, FunctionProps, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { Duration, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { functionDefaults, vpcDefaults } from './defaults';
-import { functionLayer } from '../layers';
+import { phpLayer } from '../layers';
 import { packagePhpCode } from '../package';
 import { IVpc } from 'aws-cdk-lib/aws-ec2';
 import { VpcForServerlessApp } from '../vpc/VpcForServerlessApp';
 
 export type PhpFunctionProps = Partial<FunctionProps> & {
-    phpVersion?: '8.0' | '8.1' | '8.2' | '8.3' | '8.4';
+    phpVersion?: '8.2' | '8.3' | '8.4' | '8.5';
     handler: string;
     vpc?: IVpc | VpcForServerlessApp;
 };
@@ -16,7 +16,7 @@ export type PhpFunctionProps = Partial<FunctionProps> & {
 export class PhpFunction extends Function {
     constructor(scope: Construct, id: string, props: PhpFunctionProps) {
         const defaults = {
-            runtime: Runtime.PROVIDED_AL2,
+            runtime: Runtime.PROVIDED_AL2023,
             code: props.code ?? packagePhpCode(),
             timeout: Duration.seconds(6),
             memorySize: functionDefaults.memorySize,
@@ -42,15 +42,12 @@ export class PhpFunction extends Function {
             );
         }
         const phpVersion = props.phpVersion ?? functionDefaults.phpVersion;
+        const arch = props.architecture ?? functionDefaults.architecture;
         this.addLayers(
-            // Add the function layer first so that other layers can override it
-            functionLayer(
-                this,
-                region,
-                phpVersion,
-                props.architecture ?? functionDefaults.architecture
-            ),
+            // Add the PHP layer first so that other layers can override it
+            phpLayer(this, 'BrefPhpLayer', region, phpVersion, arch),
             ...layers
         );
+        this.addEnvironment('BREF_RUNTIME', 'function');
     }
 }

@@ -9,18 +9,18 @@
     "test": "vitest"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.55.0",
+    "aws-cdk-lib": "^2.100.0",
     "constructs": "^10.0.0"
   },
   "dependencies": {
-    "@bref.sh/layers": "^2.0.95"
+    "@bref.sh/layers": "^3.0.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.195",
     "@types/node": "^18.11.3",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.40.1",
-    "aws-cdk-lib": "^2.55.0",
+    "aws-cdk-lib": "^2.240.0",
     "constructs": "^10.0.0",
     "esbuild-node-tsc": "^1.8.5",
     "eslint": "8.22.0",
