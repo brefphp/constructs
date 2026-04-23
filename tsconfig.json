@@ -10,7 +10,8 @@
     // Useful for debugging (stack traces)
     "sourceMap": true,
     "resolveJsonModule": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "types": ["node"]
   },
   "include": ["src"]
 }
