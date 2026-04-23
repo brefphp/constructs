@@ -10,11 +10,11 @@ export function packagePhpCode(
     path: string | undefined = undefined,
     options: AssetOptions = {}
 ): Code {
-    path = path ?? functionDefaults.path;
+    const resolvedPath = path ?? functionDefaults.path;
     // Prepend the PHP paths excluded by default
     const exclude = [...functionDefaults.excludedPhpPaths, ...(options.exclude ?? [])];
 
-    return Code.fromAsset(path, {
+    return Code.fromAsset(resolvedPath, {
         ...options,
         exclude,
     });
