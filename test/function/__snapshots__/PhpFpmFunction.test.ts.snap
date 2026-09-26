@@ -17,6 +17,7 @@ exports[`PhpFpmFunction > builds 1`] = `
       "Environment": {
         "Variables": {
           "BREF_RUNTIME": "fpm",
+          "BREF_STACK_NAME": "app",
         },
       },
       "Handler": "index.php",
