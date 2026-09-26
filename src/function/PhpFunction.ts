@@ -45,5 +45,9 @@ export class PhpFunction extends Function {
             ...layers
         );
         this.addEnvironment('BREF_RUNTIME', 'function');
+        // Same variable as the Bref plugin for serverless.yml (unless already set)
+        if (!props.environment?.BREF_STACK_NAME) {
+            this.addEnvironment('BREF_STACK_NAME', Stack.of(this).stackName);
+        }
     }
 }
