@@ -16,6 +16,7 @@ exports[`PhpFunction > builds 1`] = `
       "Environment": {
         "Variables": {
           "BREF_RUNTIME": "function",
+          "BREF_STACK_NAME": "app",
         },
       },
       "Handler": "index.php",
